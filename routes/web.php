@@ -15,10 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('register', function () {
+Auth::routes();
+Route::any('register', function () {
 	return redirect('/');
 })->name('register');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::resource('companies', 'CompaniesController');
+	Route::resource('employees', 'EmployeesController');
+});
