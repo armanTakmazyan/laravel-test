@@ -95,7 +95,7 @@ class CompaniesController extends Controller
 			$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
 	
 		$company->update([
-			'name' => $request->first_name,
+			'name' => $request->name,
 			'email' => $request->email,
 			'website' => $request->website,
 			'logo' => $company->id
