@@ -80,7 +80,11 @@
         </nav>
 
         <main class="py-4">
+            <!--Content -->
             @yield('content')
+
+            <!-- Scripts -->
+            @yield('scripts')
         </main>
     </div>
 </body>
