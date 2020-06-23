@@ -5,7 +5,7 @@
     
     <div class="row">
         <div class="col-offset-md-2 col-md-5">
-        <form id="add_company_form" action="{{ route('companies.store') }}" enctype="multipart/form-data" method="POST">
+        <form id="add_company_form" action="{{ route('companies.update', $company) }}" enctype="multipart/form-data" method="POST">
             @if($errors->has('name'))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>{{$errors->first('name')}}</strong>
@@ -60,7 +60,7 @@
                 <img style="object-fit: cover; width: 100px; height: 100px;" class="card-img-top img-responsive" src="{{asset('storage/logo/'.$company->logo)}}" alt="logo" onerror="this.src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fglypho-generic-icons%2F64%2Faction-upload-alt-512.png&f=1&nofb=1';this.onerror='';">
             </div>
             <hr>
-            {{ method_field('POST')}} {{csrf_field()}}
+            {{ method_field('PUT')}} {{csrf_field()}}
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <a style="margin-top: 10px;" href="{{ route('companies.index') }}" role="button" class="btn btn-info">
@@ -71,5 +71,5 @@
 
 </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
+
 @endsection

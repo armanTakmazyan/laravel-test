@@ -84,17 +84,20 @@
     </div>
 </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
+
 @endsection
 
 @section('scripts')
     <script>
+    window.addEventListener('load', function() {
+      console.log('All assets are loaded');
       $('#delete_modal').on('show.bs.modal', function(e) {
         let data = $(e.relatedTarget).data();
         let actionRoute = "/companies/"+data.companyId;
         $(this).find('.modal-title').text(`Confirm to deleting the ${data.companyTitle} company`);
         $('#delete_form').attr('action', actionRoute);
-    });
+      });
+    })
     </script>
 @stop
 
